@@ -2,5 +2,7 @@
   "name": "Marshall Street Wear | Streetwear & Admin Studio",
   "description": "Marshall Street Wear - Premium oversized streetwear, heavyweight silhouettes, direct ordering, and integrated analytics dashboard.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

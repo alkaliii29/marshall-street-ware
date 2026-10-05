@@ -6,7 +6,9 @@ import {
   deleteProduct,
   resetProducts,
   PRESET_IMAGES,
+  DEFAULT_PLACEHOLDER_IMAGE,
 } from '../services/productStorage';
+import { ImageUploadInput } from './ImageUploadInput';
 import { AdminSalesAnalytics } from './AdminSalesAnalytics';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
@@ -62,7 +64,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [formData, setFormData] = useState({
     name: '',
     price: '',
-    image: PRESET_IMAGES[0].url,
+    image: DEFAULT_PLACEHOLDER_IMAGE,
     category: 'Hoodies' as Product['category'],
     description: '',
     stock: '25',
@@ -93,7 +95,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     setFormData({
       name: '',
       price: '',
-      image: PRESET_IMAGES[0].url,
+      image: DEFAULT_PLACEHOLDER_IMAGE,
       category: 'Hoodies',
       description: '',
       stock: '25',
@@ -108,8 +110,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   // Add Product Handler
   const handleCreateProduct = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.price || !formData.image.trim()) {
-      showToast('Name, price and image URL are required', 'error');
+    if (!formData.name.trim() || !formData.price) {
+      showToast('Name and price are required', 'error');
       return;
     }
 
@@ -129,10 +131,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       .map((d) => d.trim())
       .filter(Boolean);
 
+    // Dynamic base64 image or fallback default
+    const finalImage = formData.image?.trim() || DEFAULT_PLACEHOLDER_IMAGE;
+
     const created = addProduct({
       name: formData.name.trim(),
       price: priceNum,
-      image: formData.image.trim(),
+      image: finalImage,
       category: formData.category,
       description: formData.description.trim() || 'Custom engineered heavyweight streetwear.',
       details: detailsArray.length > 0 ? detailsArray : ['Premium custom textile', 'Architectural cut'],
@@ -785,40 +790,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 </div>
               </div>
 
-              {/* Image URL & Presets */}
-              <div className="space-y-2 pt-2 border-t border-zinc-900">
-                <label className="text-xs font-mono uppercase text-zinc-400 block">Image URL *</label>
-                <input
-                  required
-                  type="text"
-                  placeholder="https://... or /src/assets/images/..."
+              {/* Direct File Image Upload */}
+              <div className="pt-2 border-t border-zinc-900">
+                <ImageUploadInput
                   value={formData.image}
-                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-white focus:border-amber-400 focus:outline-none font-mono"
+                  onChange={(img) => setFormData({ ...formData, image: img })}
+                  label="Product Image (Upload or Pick Preset)"
+                  required
                 />
-
-                <span className="text-[11px] font-mono text-zinc-500 block">Or select a high-res preset:</span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {PRESET_IMAGES.map((preset, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setFormData({ ...formData, image: preset.url })}
-                      className={`p-1.5 border rounded-lg text-left flex items-center gap-2 text-xs font-mono transition-colors ${
-                        formData.image === preset.url
-                          ? 'bg-zinc-800 border-amber-400 text-white'
-                          : 'bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-white'
-                      }`}
-                    >
-                      <img
-                        src={preset.url}
-                        alt={preset.label}
-                        className="w-7 h-7 rounded object-cover shrink-0"
-                      />
-                      <span className="truncate text-[10px]">{preset.label}</span>
-                    </button>
-                  ))}
-                </div>
               </div>
 
               <div className="space-y-1">
@@ -935,14 +914,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 </div>
               </div>
 
-              <div className="space-y-1">
-                <label className="text-xs font-mono uppercase text-zinc-400">Image URL</label>
-                <input
-                  required
-                  type="text"
+              {/* Direct File Image Upload for Edit Modal */}
+              <div className="pt-1">
+                <ImageUploadInput
                   value={editingProduct.image}
-                  onChange={(e) => setEditingProduct({ ...editingProduct, image: e.target.value })}
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-white font-mono"
+                  onChange={(img) => setEditingProduct({ ...editingProduct, image: img })}
+                  label="Product Image (Upload or Pick Preset)"
                 />
               </div>
 

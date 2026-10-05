@@ -1,31 +1,39 @@
 import { Product } from '../types';
+import heroImg from '../assets/images/hero_streetwear_editorial_1791204113530.jpg';
+import hoodieImg from '../assets/images/product_heavy_hoodie_1791204137126.jpg';
+import cargoImg from '../assets/images/product_cargo_trousers_1791204153639.jpg';
+import bomberImg from '../assets/images/product_leather_bomber_1791204167728.jpg';
+import sneakersImg from '../assets/images/product_street_sneakers_1791206271791.jpg';
+import varsityImg from '../assets/images/product_varsity_jacket_1791206284661.jpg';
+import graphicTeeImg from '../assets/images/product_graphic_tee_1791206297016.jpg';
 
-export const HERO_IMAGE = '/src/assets/images/hero_streetwear_editorial_1791204113530.jpg';
+export const HERO_IMAGE = heroImg;
+export const DEFAULT_PLACEHOLDER_IMAGE = hoodieImg;
 
 export const PRESET_IMAGES = [
   {
     label: 'Oversized Black Hoodie',
-    url: '/src/assets/images/product_heavy_hoodie_1791204137126.jpg',
+    url: hoodieImg,
   },
   {
     label: 'Graphic Street Tee',
-    url: '/src/assets/images/product_graphic_tee_1791206297016.jpg',
+    url: graphicTeeImg,
   },
   {
     label: 'Cargo Pants Olive',
-    url: '/src/assets/images/product_cargo_trousers_1791204153639.jpg',
+    url: cargoImg,
   },
   {
     label: 'Varsity Jacket Black & Gold',
-    url: '/src/assets/images/product_varsity_jacket_1791206284661.jpg',
+    url: varsityImg,
   },
   {
     label: 'Street Sneakers Lug Sole',
-    url: '/src/assets/images/product_street_sneakers_1791206271791.jpg',
+    url: sneakersImg,
   },
   {
     label: 'Denim / Flight Jacket',
-    url: '/src/assets/images/product_leather_bomber_1791204167728.jpg',
+    url: bomberImg,
   },
 ];
 
@@ -38,7 +46,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-01',
     name: 'Oversized Black Hoodie',
     price: 1299,
-    image: '/src/assets/images/product_heavy_hoodie_1791204137126.jpg',
+    image: hoodieImg,
     category: 'Hoodies',
     description: 'Heavyweight 480 GSM French Terry cotton hoodie with a double-layered structured hood, dropped shoulders, and relaxed boxy drape.',
     details: [
@@ -59,7 +67,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-02',
     name: 'Graphic Street Tee',
     price: 799,
-    image: '/src/assets/images/product_graphic_tee_1791206297016.jpg',
+    image: graphicTeeImg,
     category: 'T-Shirts',
     description: '300 GSM combed cotton t-shirt with signature metallic gold typography screenprint. Thick non-stretch rib collar and blind-stitched cuffs.',
     details: [
@@ -80,7 +88,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-03',
     name: 'Cargo Pants Olive',
     price: 1499,
-    image: '/src/assets/images/product_cargo_trousers_1791204153639.jpg',
+    image: cargoImg,
     category: 'Pants',
     description: 'Relaxed tactical cargo trousers in dark olive ripstop fabric. Features 6 functional accordion utility pockets and adjustable ankle drawcords.',
     details: [
@@ -101,7 +109,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-04',
     name: 'Denim Jacket Washed',
     price: 2199,
-    image: '/src/assets/images/product_leather_bomber_1791204167728.jpg',
+    image: bomberImg,
     category: 'Outerwear',
     description: '14oz rigid selvedge denim jacket finished with an artisan vintage wash. Heavy antique brass button closures and twin chest flap pockets.',
     details: [
@@ -122,7 +130,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-05',
     name: 'Urban Cap',
     price: 499,
-    image: '/src/assets/images/hero_streetwear_editorial_1791204113530.jpg',
+    image: heroImg,
     category: 'Accessories',
     description: 'Structured 6-panel unstructured dad cap with curved brim, tonal front 3D embroidery, and an antique brass buckle slide strap.',
     details: [
@@ -143,7 +151,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-06',
     name: 'Street Sneakers',
     price: 2499,
-    image: '/src/assets/images/product_street_sneakers_1791206271791.jpg',
+    image: sneakersImg,
     category: 'Footwear',
     description: 'High-end architectural chunky sneakers featuring a sculpted lugged commando outsole, premium box calf leather panels, and cushioned interior.',
     details: [
@@ -164,7 +172,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-07',
     name: 'Flannel Shirt Red',
     price: 1199,
-    image: '/src/assets/images/hero_streetwear_editorial_1791204113530.jpg',
+    image: heroImg,
     category: 'Outerwear',
     description: 'Brushed heavyweight cotton flannel shirt in signature red and black tartan check. Designed with a generous oversized overshirt silhouette.',
     details: [
@@ -185,7 +193,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-08',
     name: 'Printed Hoodie Beige',
     price: 1399,
-    image: '/src/assets/images/product_heavy_hoodie_1791204137126.jpg',
+    image: hoodieImg,
     category: 'Hoodies',
     description: 'Warm oat beige hoodie constructed from 450 GSM fleece with high-density puff print detailing across the back and front kangaroo pocket.',
     details: [
@@ -206,7 +214,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-09',
     name: 'Varsity Jacket',
     price: 2999,
-    image: '/src/assets/images/product_varsity_jacket_1791206284661.jpg',
+    image: varsityImg,
     category: 'Outerwear',
     description: 'Heavyweight wool-blend varsity jacket with vegan leather contrast sleeves, chenille collegiate street patches, and quilted thermal cupro lining.',
     details: [
@@ -227,7 +235,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-10',
     name: 'Minimal White Tee',
     price: 699,
-    image: '/src/assets/images/product_graphic_tee_1791206297016.jpg',
+    image: graphicTeeImg,
     category: 'T-Shirts',
     description: 'Clean crisp optic white everyday essential t-shirt cut in a boxy relaxed fit from 260 GSM combed cotton with subtle tonal neck embroidery.',
     details: [
@@ -248,7 +256,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-11',
     name: 'Street Shorts',
     price: 899,
-    image: '/src/assets/images/product_cargo_trousers_1791204153639.jpg',
+    image: cargoImg,
     category: 'Pants',
     description: 'Above-the-knee heavy French Terry sweat shorts with an elasticized waistband, long dipped drawcords, and deep zip-fastened pockets.',
     details: [
@@ -269,7 +277,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     id: 'prod-12',
     name: 'Zip Hoodie Grey',
     price: 1499,
-    image: '/src/assets/images/product_heavy_hoodie_1791204137126.jpg',
+    image: hoodieImg,
     category: 'Hoodies',
     description: 'Heather grey heavyweight full-zip hoodie with industrial silver two-way zipper, thermal waffle-lined hood, and split front pouch pockets.',
     details: [
